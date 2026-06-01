@@ -187,34 +187,183 @@ h1,h2,h3,h4{font-family:'Orbitron',sans-serif;font-weight:700}
 .fade-up{opacity:0;transform:translateY(40px);transition:all .8s ease}
 .fade-up.visible{opacity:1;transform:translateY(0)}
 @keyframes flicker{0%,100%{opacity:1}50%{opacity:.7}25%,75%{opacity:.9}}
-/* RESPONSIVE */
+/* ── RESPONSIVE ── */
+
+/* Tablet – 1024px */
 @media(max-width:1024px){
-.hero-content{flex-direction:column;text-align:center;gap:40px;padding:0 24px}
-.hero-cta{justify-content:center}
-.hero-avatar{flex:0 0 auto}
-.about-grid{grid-template-columns:1fr}
-.projects-grid{grid-template-columns:1fr}
+  .hero-content{flex-direction:column;text-align:center;gap:40px;padding:0 32px;padding-top:80px}
+  .hero-text{width:100%}
+  .hero-cta{justify-content:center}
+  .hero-avatar{flex:0 0 auto}
+  .about-grid{grid-template-columns:1fr;gap:32px}
+  .projects-grid{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+  .contact-panel{padding:36px}
+  .section-title{font-size:1.7rem;margin-bottom:48px}
 }
+
+/* Tablet portrait / large mobile – 768px */
 @media(max-width:768px){
-.nav-links{position:fixed;top:70px;right:-100%;width:260px;height:calc(100vh - 70px);background:rgba(5,5,16,.97);flex-direction:column;padding:40px 24px;gap:20px;transition:right .4s;backdrop-filter:blur(20px)}
-.nav-links.open{right:0}
-.hamburger{display:flex}
-#navbar{padding:0 20px}
-.hero-content{padding:0 16px}
-.glitch{font-size:2rem}
-.avatar-orbit-container{width:220px;height:220px}
-#avatar-img{width:150px;height:150px}
-.orbit-icon{width:28px;height:28px}
-.orbit-1,.orbit-2,.orbit-3{animation-name:orbit1sm,orbit2sm,orbit3sm}
-@keyframes orbit1sm{from{transform:rotate(0) translateX(105px) rotate(0)}to{transform:rotate(360deg) translateX(105px) rotate(-360deg)}}
-@keyframes orbit2sm{from{transform:rotate(120deg) translateX(105px) rotate(-120deg)}to{transform:rotate(480deg) translateX(105px) rotate(-480deg)}}
-@keyframes orbit3sm{from{transform:rotate(240deg) translateX(105px) rotate(-240deg)}to{transform:rotate(600deg) translateX(105px) rotate(-600deg)}}
-.hex-item{width:90px;height:104px}
-.hex-name{font-size:.65rem}
-.contact-info{grid-template-columns:1fr}
-.modal-content{padding:28px}
-.timeline{padding-left:32px}
-.section{padding:100px 0 60px}
-.cursor-dot,.cursor-ring{display:none}
-body{cursor:auto}
+  /* Nav */
+  .nav-links{position:fixed;top:70px;right:-100%;width:260px;height:calc(100vh - 70px);background:rgba(5,5,16,.97);flex-direction:column;padding:40px 24px;gap:20px;transition:right .4s;backdrop-filter:blur(20px)}
+  .nav-links.open{right:0}
+  .hamburger{display:flex}
+  #navbar{padding:0 20px}
+
+  /* Section spacing */
+  .section{padding:100px 0 60px}
+  .container{padding:0 20px}
+
+  /* Hero */
+  .hero-content{flex-direction:column;text-align:center;gap:32px;padding:80px 20px 40px}
+  .glitch{font-size:clamp(1.8rem,7vw,2.8rem)}
+  .typewriter-wrap{font-size:.95rem;justify-content:center}
+  .hero-cta{justify-content:center;gap:12px}
+  .btn{padding:12px 24px;font-size:.78rem}
+
+  /* Avatar */
+  .hero-avatar{flex:0 0 auto}
+  .avatar-orbit-container{width:220px;height:220px}
+  #avatar-img{width:150px;height:150px}
+  .orbit-icon{width:28px;height:28px}
+  .orbit-1{animation-name:orbit1sm}
+  .orbit-2{animation-name:orbit2sm}
+  .orbit-3{animation-name:orbit3sm}
+  @keyframes orbit1sm{from{transform:rotate(0deg) translateX(105px) rotate(0deg)}to{transform:rotate(360deg) translateX(105px) rotate(-360deg)}}
+  @keyframes orbit2sm{from{transform:rotate(120deg) translateX(105px) rotate(-120deg)}to{transform:rotate(480deg) translateX(105px) rotate(-480deg)}}
+  @keyframes orbit3sm{from{transform:rotate(240deg) translateX(105px) rotate(-240deg)}to{transform:rotate(600deg) translateX(105px) rotate(-600deg)}}
+
+  /* About */
+  .about-grid{grid-template-columns:1fr;gap:24px}
+  .about-text{padding:24px;font-size:1rem}
+
+  /* Skills */
+  .skill-category{padding:20px 22px}
+  .skill-cat-label{font-size:.8rem}
+  .skill-card{font-size:.8rem;padding:7px 14px}
+
+  /* Timeline */
+  .timeline{padding-left:28px}
+  .timeline-item{padding:20px}
+  .timeline-dot{left:-24px}
+  .timeline-images img{max-width:100%;width:100%}
+
+  /* Projects */
+  .projects-grid{grid-template-columns:1fr;gap:24px}
+  .project-card{padding:24px}
+
+  /* Modal */
+  .modal-overlay{padding:16px;align-items:flex-start;padding-top:80px}
+  .modal-content{padding:24px;max-height:calc(100vh - 100px);border-radius:12px}
+  .modal-title{font-size:1.5rem}
+  .modal-close{top:16px;right:16px;font-size:2rem}
+
+  /* Achievements */
+  .achievements-grid{grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+  .achieve-card{padding:24px}
+
+  /* Contact */
+  .contact-info{grid-template-columns:1fr;gap:12px}
+  .contact-panel{padding:24px;margin:0 4px}
+  .form-submit{align-self:stretch}
+  .form-submit .btn{width:100%;justify-content:center}
+
+  /* Section title */
+  .section-title{font-size:1.5rem;letter-spacing:2px;margin-bottom:36px}
+
+  /* Cursor – hide on touch */
+  .cursor-dot,.cursor-ring{display:none}
+  body{cursor:auto}
+}
+
+/* Mobile – 480px */
+@media(max-width:480px){
+  /* Section */
+  .section{padding:90px 0 50px}
+  .container{padding:0 16px}
+
+  /* Hero */
+  .hero-content{padding:70px 16px 32px;gap:24px}
+  .hero-greeting{font-size:.75rem;letter-spacing:3px}
+  .glitch{font-size:clamp(1.5rem,8vw,2.2rem);line-height:1.2}
+  .typewriter-wrap{font-size:.85rem;flex-wrap:wrap;justify-content:center;gap:2px}
+  .hero-cta{flex-direction:column;align-items:center;gap:12px;width:100%}
+  .btn{width:100%;justify-content:center;padding:14px 20px}
+
+  /* Avatar */
+  .avatar-orbit-container{width:180px;height:180px}
+  #avatar-img{width:120px;height:120px}
+  .orbit-icon{width:24px;height:24px}
+  .orbit-1{animation-name:orbit1xs}
+  .orbit-2{animation-name:orbit2xs}
+  .orbit-3{animation-name:orbit3xs}
+  @keyframes orbit1xs{from{transform:rotate(0deg) translateX(86px) rotate(0deg)}to{transform:rotate(360deg) translateX(86px) rotate(-360deg)}}
+  @keyframes orbit2xs{from{transform:rotate(120deg) translateX(86px) rotate(-120deg)}to{transform:rotate(480deg) translateX(86px) rotate(-480deg)}}
+  @keyframes orbit3xs{from{transform:rotate(240deg) translateX(86px) rotate(-240deg)}to{transform:rotate(600deg) translateX(86px) rotate(-600deg)}}
+
+  /* About */
+  .about-text{padding:18px;font-size:.95rem}
+  .skill-bar-label{font-size:.82rem}
+
+  /* Skills */
+  .skill-category{padding:16px}
+  .skill-cards-row{gap:8px}
+  .skill-card{font-size:.75rem;padding:6px 12px}
+
+  /* Timeline */
+  .timeline{padding-left:24px}
+  .timeline::before{left:10px}
+  .timeline-dot{left:-20px;width:12px;height:12px;top:28px}
+  .timeline-item{padding:16px;margin-bottom:24px}
+  .timeline-role{font-size:1.1rem}
+  .timeline-company{font-size:.9rem}
+
+  /* Projects */
+  .project-card{padding:18px}
+  .project-card-title{font-size:1.2rem}
+  .project-card-desc{-webkit-line-clamp:4}
+
+  /* Modal */
+  .modal-overlay{padding:0;align-items:flex-end;padding-top:0}
+  .modal-content{border-radius:16px 16px 0 0;max-height:88vh;padding:20px 18px}
+  .modal-title{font-size:1.3rem}
+  .modal-desc{font-size:.9rem}
+  .stat-badge{font-size:.7rem;padding:6px 14px}
+
+  /* Achievements */
+  .achievements-grid{grid-template-columns:1fr;gap:16px}
+  .achieve-card{padding:20px}
+  .achieve-icon{font-size:2rem}
+  .achieve-title{font-size:.9rem}
+
+  /* Contact */
+  .contact-panel{padding:20px 16px;border-radius:12px}
+  .contact-item{padding:12px}
+  .contact-item-value{font-size:.85rem;word-break:break-all}
+
+  /* Section title */
+  .section-title{font-size:1.25rem;letter-spacing:1px;margin-bottom:28px}
+
+  /* Footer */
+  #footer{font-size:.72rem;padding:24px 16px}
+
+  /* Loader */
+  .loader-content{width:260px}
+  .loader-text{font-size:1.1rem}
+}
+
+/* Very small – 360px */
+@media(max-width:360px){
+  .glitch{font-size:1.4rem}
+  .hero-greeting{font-size:.7rem}
+  .typewriter-wrap{font-size:.78rem}
+  .avatar-orbit-container{width:160px;height:160px}
+  #avatar-img{width:110px;height:110px}
+  .orbit-1{animation-name:orbit1xxs}
+  .orbit-2{animation-name:orbit2xxs}
+  .orbit-3{animation-name:orbit3xxs}
+  @keyframes orbit1xxs{from{transform:rotate(0deg) translateX(76px) rotate(0deg)}to{transform:rotate(360deg) translateX(76px) rotate(-360deg)}}
+  @keyframes orbit2xxs{from{transform:rotate(120deg) translateX(76px) rotate(-120deg)}to{transform:rotate(480deg) translateX(76px) rotate(-480deg)}}
+  @keyframes orbit3xxs{from{transform:rotate(240deg) translateX(76px) rotate(-240deg)}to{transform:rotate(600deg) translateX(76px) rotate(-600deg)}}
+  .contact-panel{padding:16px 12px}
+  .modal-content{padding:16px 14px}
 }
